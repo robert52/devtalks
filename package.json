@@ -1,0 +1,12 @@
+{
+  "name": "devtalks",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "^4.10.6",
+    "mysql": "^2.5.4",
+    "swig": "~1.4.2",
+    "sha1": "~1.1.0",
+    "express-session": "~1.10.4",
+    "body-parser": "~1.12.2"
+  }
+}

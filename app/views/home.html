@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{{title}}</title>
+        <style type="text/css">
+            #content {
+                width: 960px;
+                margin: auto;
+            }
+
+            input, button {
+                font-size: 20px;
+            }
+
+            .alert {
+                font-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            {% if !isLogged %}
+            <h1>{{title}}</h1>
+
+            <h2>Login</h2>
+            <form method="post">
+                <p class="alert">{{error}}</p>
+                <input name="email" type="text" placeholder="email">
+                <input name="password" type="password" placeholder="password">
+                <button type="submit">Log In</button>
+            </form>
+            {% else %}
+            <h1>{{title}}</h1>
+
+            <h2>Hi! You are logged</h2>
+            <p>
+                <a href="/?action=logout">Log out</a>
+            </p>
+        </div>
+    </body>
+</html>
