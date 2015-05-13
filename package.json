@@ -1,12 +1,31 @@
 {
   "name": "devtalks",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "authors": [
+    {
+      "name": "Paul Brie",
+      "github": "https://github.com/paulbrie"
+    },
+    {
+      "name": "Robert Onodi",
+      "github": "https://github.com/robert52"
+    }
+  ],
+  "scripts": {
+    "start": "node app.js",
+    "unit": "mocha tests/unit/ --ui bdd --recursive --reporter spec --timeout 10000 --slow 900",
+    "integration": "mocha tests/integration/ --ui bdd --recursive --reporter spec --timeout 10000 --slow 900"
+  },
   "dependencies": {
     "express": "^4.10.6",
     "mysql": "^2.5.4",
     "swig": "~1.4.2",
     "sha1": "~1.1.0",
     "express-session": "~1.10.4",
-    "body-parser": "~1.12.2"
+    "body-parser": "~1.12.2",
+    "mocha": "^2.2.4",
+    "chai": "^2.3.0",
+    "lodash": "^3.7.0",
+    "chai-things": "^0.2.0"
   }
 }

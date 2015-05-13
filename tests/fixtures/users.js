@@ -1,5 +1,4 @@
-// mockup of a data layer access
-var Users = [
+module.exports = [
   {
     _id: '554b6fe1a42e7bbc1e932344',
     email: 'test@test.com',
@@ -11,43 +10,3 @@ var Users = [
     active: true
   }
 ];
-
-var _ = require('lodash');
-var passwordHelper = require('../helpers/password');
-
-module.exports = {
-  findOne: function(obj, callback) {
-    var user = _.find(Users, function(user) {
-      return user.email === obj.email;
-    });
-
-    callback(null, user);
-  },
-  authenticate: function(email, password, callback) {
-    this.findOne({ email: email }, function(err, user) {
-      if (err) {
-        return callback(err, null);
-      }
-
-      // no user found just return the empty user
-      if (!user) {
-        return callback(err, user);
-      }
-
-      // verify the password with the existing hash from the user
-      passwordHelper.verify(password, user.password, user.passwordSalt, function(err, result) {
-        if (err) {
-          return callback(err, null);
-        }
-
-        // if password does not match don't return user
-        if (result === false) {
-          return callback(err, null);
-        }
-
-        // return user if everything is ok
-        callback(err, user);
-      });
-    });
-  }
-};

@@ -9,7 +9,7 @@ function login(email, password) {
         return {result: check.result, msg: check.msg};
     // else go to data layer
     } else {
-        var dataCheck = usersModel.login(email, password);
+        var dataCheck = usersModel.authenticate(email, password);
         if(dataCheck.result) {
             return {result: true, data: dataCheck.data};
         } else {
